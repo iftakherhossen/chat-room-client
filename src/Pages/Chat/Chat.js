@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import { useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import Messages from './Messages';
 
 let socket;
 
@@ -46,7 +47,7 @@ const Chat = () => {
 
         if (message) {
             socket.emit('sendMessage', message, () => setMessage(''));
-        } 
+        }
     }
 
     console.log(message, messages);
@@ -55,7 +56,7 @@ const Chat = () => {
         <div className="outerContainer">
             <div className="chatInnerContainer">
                 <div className="header">
-                    <div>
+                    <div className="subHeader">
                         <h1 className="subTitle">{room}</h1>
                         <span className="activeIcon"></span>
                     </div>
@@ -63,19 +64,24 @@ const Chat = () => {
                 </div>
                 <div className="chatUnderline"></div>
                 <div className="chatDisplay">
-                    <h2>Chat</h2>
+                    <Messages
+                        messages={messages}
+                        name={name}
+                    />
                 </div>
                 <div className="chatUnderline"></div>
                 <div className="chatBox">
-                    <input
-                        type="text"
-                        placeholder="Type Here..."
-                        className="chatInputField"
-                        value={message}
-                        onChange={e => setMessage(e.target.value)}
-                        onKeyPress={e => e.key === 'Enter' ? sendMessage(e): null}
-                    />
-                    <button type="submit" className="chatButton">{send}</button>
+                    <from>
+                        <input
+                            type="text"
+                            placeholder="Type Here..."
+                            className="chatInputField"
+                            value={message}
+                            onChange={e => setMessage(e.target.value)}
+                            onKeyPress={e => e.key === 'Enter' ? sendMessage(e) : null}
+                        />
+                        <button type="submit" className="chatButton" onClick={e => sendMessage(e)}>{send}</button>
+                    </from>
                 </div>
             </div>
         </div>

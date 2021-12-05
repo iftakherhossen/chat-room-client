@@ -82,6 +82,11 @@
   align-items: center;
 }
 
+.subHeader {
+  display: flex;
+  align-items: center;
+}
+
 .subTitle {
   font-size: 1.5em;
   font-weight: 900;
@@ -90,9 +95,10 @@
 }
 
 .activeIcon {
-  color: green !important;
-  width: 10px;
-  height: 10px;
+  background-color: green;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
 }
 
 .leaveButton {
@@ -123,6 +129,7 @@
   display: flex;
   align-items: center;
   padding: 0 15px;
+  width: 100%;
 }
 
 .chatInputField {
@@ -132,7 +139,6 @@
   border: 0;
   border-radius: 10px 0 0 10px;
   margin: -3px;
-  width: 100%;
   background-color: transparent;
   color: white;
 }
@@ -151,6 +157,12 @@
 
 .chatButton:hover {
   color: gold;
+}
+
+.messages {
+  padding: 5% 0;
+  overflow: auto;
+  flex: auto;
 }
 
 /* Chat Page CSS End */
