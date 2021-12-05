@@ -6,12 +6,17 @@
   font-family: 'Bitter', serif !important;
 }
 
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
 /* Common CSS End */
 
 /* Join Page CSS Start */
 .outerContainer {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,3 +219,11 @@
 }
 
 /* Chat Page CSS End */
+
+/* Footer CSS Start */
+.footer a {
+  text-decoration: none;
+  color: #358DC8;
+}
+
+/* Footer CSS End */

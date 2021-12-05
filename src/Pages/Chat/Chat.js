@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import io from "socket.io-client";
 import { useLocation } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Messages from './Messages';
+import Footer from '../Shared/Footer/Footer';
 
 let socket;
 
@@ -53,37 +55,41 @@ const Chat = () => {
     console.log(message, messages);
 
     return (
-        <div className="outerContainer">
-            <div className="chatInnerContainer">
-                <div className="header">
-                    <div className="subHeader">
-                        <h1 className="subTitle">{room}</h1>
-                        <span className="activeIcon"></span>
+        <div className="wrapper">
+            <div className="outerContainer">
+                <div className="chatInnerContainer">
+                    <div className="header">
+                        <div className="subHeader">
+                            <h1 className="subTitle">{room}</h1>
+                            <span className="activeIcon"></span>
+                        </div>
+                        <Link to="/"><button className="leaveButton">Leave</button></Link>
                     </div>
-                    <button className="leaveButton">Leave</button>
-                </div>
-                <div className="chatUnderline"></div>
-                <div className="chatDisplay">
-                    <Messages
-                        messages={messages}
-                        name={name}
-                    />
-                </div>
-                <div className="chatUnderline"></div>
-                <div>
-                    <from className="chatInputBox">
-                        <input
-                            type="text"
-                            placeholder="Type Here..."
-                            className="chatInputField"
-                            value={message}
-                            onChange={e => setMessage(e.target.value)}
-                            onKeyPress={e => e.key === 'Enter' ? sendMessage(e) : null}
+                    <div className="chatUnderline"></div>
+                    <div className="chatDisplay">
+                        <Messages
+                            messages={messages}
+                            name={name}
                         />
-                        <button type="submit" className="chatButton" onClick={e => sendMessage(e)}>{send}</button>
-                    </from>
+                    </div>
+                    <div className="chatUnderline"></div>
+                    <div>
+                        <from className="chatInputBox">
+                            <input
+                                type="text"
+                                placeholder="Type Here..."
+                                className="chatInputField"
+                                value={message}
+                                onChange={e => setMessage(e.target.value)}
+                                onKeyPress={e => e.key === 'Enter' ? sendMessage(e) : null}
+                            />
+                            <button type="submit" className="chatButton" onClick={e => sendMessage(e)}>{send}</button>
+                        </from>
+                    </div>
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 };
