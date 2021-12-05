@@ -14,13 +14,13 @@ const Chat = () => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const location = useLocation();
-    const endPoint = 'localhost:5000';
+    const ENDPOINT = 'https://chatroom-server-heroku.herokuapp.com/';
     const send = <FontAwesomeIcon icon={faPaperPlane} />
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search);
 
-        socket = io(endPoint);
+        socket = io(ENDPOINT);
 
         setName(name);
         setRoom(room);
@@ -34,7 +34,7 @@ const Chat = () => {
 
             socket.off();
         }
-    }, [endPoint, location.search]);
+    }, [ENDPOINT, location.search]);
 
     useEffect(() => {
         socket.on('message', message => {
