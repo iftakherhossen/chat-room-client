@@ -30,7 +30,7 @@ const Chat = () => {
         });
 
         return () => {
-            socket.emit('disconnect');
+            socket.emit('disconnection');
 
             socket.off();
         }
@@ -70,8 +70,8 @@ const Chat = () => {
                     />
                 </div>
                 <div className="chatUnderline"></div>
-                <div className="chatBox">
-                    <from>
+                <div>
+                    <from className="chatInputBox">
                         <input
                             type="text"
                             placeholder="Type Here..."

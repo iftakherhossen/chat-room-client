@@ -124,7 +124,7 @@
   height: 72%;
 }
 
-.chatBox {
+.chatInputBox {
   margin: 0;
   display: flex;
   align-items: center;
@@ -139,6 +139,7 @@
   border: 0;
   border-radius: 10px 0 0 10px;
   margin: -3px;
+  width: 85%;
   background-color: transparent;
   color: white;
 }
@@ -163,6 +164,53 @@
   padding: 5% 0;
   overflow: auto;
   flex: auto;
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 3px;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.userName {
+  display: flex;
+  align-items: center;
+  color: #828282;
+  letter-spacing: 0.3px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.messageBox {
+  background: #F3F3F3;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: white;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.backgroundDark {
+  background-color: #aaa;
+}
+
+.backgroundLight {
+  background-color: #eee;
 }
 
 /* Chat Page CSS End */
